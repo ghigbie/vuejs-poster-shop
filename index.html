@@ -42,6 +42,7 @@
                             v-for="(item, index) in cart">
                             <div class="item-title">
                                 {{ item.title }} 
+                                <span class="item-qty">{{ item.qty }}</span>
                                 <span @click="removeItem(index)">X</span>
                             </div>
                         </li>
