@@ -20,12 +20,26 @@
     </div>
     <div class="main">
         <div class="products">
-            <button v-on:click="addItem">Add to Cart</button>
+            <div class="product"
+                 v-for="(item, index) in items">
+                 <h4 class="product-title">{{ item.title}}</h4>
+                 <div>
+                    <img v-bind:src="imageSrc">
+                 </div>
+                 <div>
+                    <button class="add-to-cart"
+                            v-on:click="addItem(index)">Add to Cart</button>
+                 </div>
+            </div>
+            
         </div>
         <div class="cart">
             <h2>Shopping Cart</h2>
             <div>
                 <div>Total: {{ total }}</div>
+                <div v-for="item in cart">
+                    <p>{{ item.title }} </p>
+                </div>
             </div>
         </div>
     </div>
