@@ -18,16 +18,20 @@ new Vue({
         addItem: function(index){
             this.total += 9.99;
             const item = this.items[index];
+            let found = false;
             for(let i = 0; i < this.cart.length; i++){
                 if(this.cart[i].id === item.id){
+                    found = true;
                     this.cart[i].qty++;
                 }
             }
-            this.cart.push({
-                id: item.id,
-                title: item.title,
-                qty: 1
-            })
+            if(!found){
+                this.cart.push({
+                    id: item.id,
+                    title: item.title,
+                    qty: 1
+                })
+            }
         },
         removeItem: function(index){
             this.cart.splice(index, 1);
