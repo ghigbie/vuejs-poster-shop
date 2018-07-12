@@ -22,7 +22,7 @@ new Vue({
             console.log(this.cart);
         },
         removeItem: function(index){
-
+            this.cart.splice(index, 1);
         }
     }
 })

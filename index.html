@@ -36,10 +36,18 @@
         <div class="cart">
             <h2>Shopping Cart</h2>
             <div>
-                <div>Total: {{ total }}</div>
-                <div v-for="item in cart">
-                    <p>{{ item.title }} </p>
+                <div>
+                    <ul>
+                        <li class="car-item"
+                            v-for="(item, index) in cart">
+                            <div class="item-title">
+                                {{ item.title }} 
+                                <span @click="removeItem(index)">X</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+                <div>Total: {{ total }}</div>
             </div>
         </div>
     </div>
