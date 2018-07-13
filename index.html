@@ -22,7 +22,7 @@
         <div class="products">
             <div class="product"
                  v-for="(item, index) in items">
-                 <h4 class="product-title">{{ item.title}}</h4>
+                 <h4 class="product-title">{{ item.title }}</h4>
                  <div>
                     <img v-bind:src="imageSrc">
                  </div>
@@ -42,13 +42,14 @@
                             v-for="(item, index) in cart">
                             <div class="item-title">
                                 {{ item.title }} 
-                                <span class="item-qty">{{ item.qty }}</span>
-                                <span @click="removeItem(index)">X</span>
+                                <span class="item-qty">{{ item.price | currency }}x{{ item.qty }}</span>
+                                <button class="btn">+</button>
+                                <button class="btn">-</button>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div v-if="cart.length">Total: {{ total }}</div>
+                <div v-if="cart.length">Total: {{ total | currency }}</div>
                 <div v-else class="empty-cart">No items in the cart</div>
             </div>
         </div>

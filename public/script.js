@@ -1,4 +1,4 @@
-console.log('It works well.');
+const PRICE = 9.99;
 
 new Vue({
     el: '#app',
@@ -16,7 +16,7 @@ new Vue({
     },
     methods: {
         addItem: function(index){
-            this.total += 9.99;
+            this.total += PRICE;
             const item = this.items[index];
             let found = false;
             for(let i = 0; i < this.cart.length; i++){
@@ -29,12 +29,18 @@ new Vue({
                 this.cart.push({
                     id: item.id,
                     title: item.title,
-                    qty: 1
+                    qty: 1,
+                    price: PRICE
                 })
             }
         },
         removeItem: function(index){
             this.cart.splice(index, 1);
+        }
+    },
+    filters: {
+        currency: function(price){
+            return '$'.concat(price.toFixed(2));
         }
     }
 })
