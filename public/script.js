@@ -41,6 +41,14 @@ new Vue({
         decrement: function(item){
             item.qty--;
             this.total -= PRICE;
+            if(item.qty <= 0){
+                for(let i = 0; this.cart.length; i++){
+                   if(this.cart[i].id === item.id){
+                       this.cart.splice(i, 1);
+                       break;
+                   }
+                }
+            }
         }
     },
     filters: {
