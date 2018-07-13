@@ -43,8 +43,10 @@
                             <div class="item-title">
                                 {{ item.title }} 
                                 <span class="item-qty">{{ item.price | currency }}x{{ item.qty }}</span>
-                                <button class="btn">+</button>
-                                <button class="btn">-</button>
+                                <button class="btn"
+                                        @click="increment(item)">+</button>
+                                <button class="btn"
+                                        @click="decrement(item)">-</button>
                             </div>
                         </li>
                     </ul>

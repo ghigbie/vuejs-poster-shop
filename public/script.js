@@ -34,8 +34,13 @@ new Vue({
                 })
             }
         },
-        removeItem: function(index){
-            this.cart.splice(index, 1);
+        increment: function(item){
+            item.qty++;
+            this.total += PRICE;
+        },
+        decrement: function(item){
+            item.qty--;
+            this.total -= PRICE;
         }
     },
     filters: {
