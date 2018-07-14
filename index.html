@@ -18,7 +18,9 @@
     <div class="header">
         <h1>Vue.js Poster Store</h1>
         <form class="serachbar" @submit.prevent="onSubmit">
-            <input type="text">
+            <input type="text"
+                   v-model="searchTerm"
+                   placeholder="Search for posters">
             <input type="submit" 
                    value="Search" 
                    class="btn">
@@ -67,6 +69,7 @@
 <!-- Scripts -->
 <script src="/reload/reload.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/vue-resource/dist/vue-resource.js"></script>
 <script type="text/javascript" src="public/script.js"></script>
 
 </body>

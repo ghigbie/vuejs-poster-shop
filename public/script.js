@@ -12,7 +12,8 @@ new Vue({
             { id: 5, title: 'Item 5'},
         ],
         imageSrc: 'http://placekitten.com/300/300',
-        cart: []
+        cart: [],
+        searchTerm: ''
     },
     methods: {
         addItem: function(index){
@@ -37,6 +38,7 @@ new Vue({
         },
         onSubmit: function(event){
             console.log('onSubmit');
+            console.log(this.searchTerm);
         },
         increment: function(item){
             item.qty++;
