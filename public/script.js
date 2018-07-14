@@ -4,16 +4,9 @@ new Vue({
     el: '#app',
     data: {
         total: 0.00, 
-        items: [
-            { id: 1, title: 'Item 1'},
-            { id: 2, title: 'Item 2'},
-            { id: 3, title: 'Item 3'},
-            { id: 4, title: 'Item 4'},
-            { id: 5, title: 'Item 5'},
-        ],
-        imageSrc: 'http://placekitten.com/300/300',
+        items: [],
         cart: [],
-        searchTerm: ''
+        searchTerm: 'smurfs',
     },
     methods: {
         addItem: function(index){
@@ -39,6 +32,14 @@ new Vue({
         onSubmit: function(event){
             console.log('onSubmit');
             console.log(this.searchTerm);
+            console.log(this.$http);
+            this.$http
+                .get('/search/'.concat(this.searchTerm))
+                .then(function(res){
+                    console.log(res);
+                    console.log(res.body);
+                    console.log(res.data);
+                });
         },
         increment: function(item){
             item.qty++;
