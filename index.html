@@ -17,8 +17,8 @@
 <div id="app">
     <div class="header">
         <h1>Vue.js Poster Store</h1>
-        <form class="serachbar">
-            
+        <form class="serachbar" @submit.prevent="onSubmit">
+            <input type="text">
             <input type="submit" 
                    value="Search" 
                    class="btn">

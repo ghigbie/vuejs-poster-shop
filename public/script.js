@@ -35,6 +35,9 @@ new Vue({
                 })
             }
         },
+        onSubmit: function(event){
+            console.log('onSubmit');
+        },
         increment: function(item){
             item.qty++;
             this.total += PRICE;
