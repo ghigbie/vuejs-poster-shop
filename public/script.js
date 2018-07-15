@@ -7,7 +7,7 @@ new Vue({
         items: [],
         cart: [],
         searchTerm: 'gummy bears',
-        lastSearchterm: ''
+        lastSearchTerm: ''
     },
     methods: {
         addItem: function(index){
