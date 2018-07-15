@@ -63,7 +63,7 @@ new Vue({
             }
         }
     },
-    beforeMount(){
+    mounted(){
         this.onSubmit();
     },
     filters: {
