@@ -28,11 +28,14 @@
     </div>
     <div class="main">
         <div class="products">
+            <div class="search-results">
+                Found {{ items.length }} result{{ items.length === 1 ? null : 's'}} for search term {{ searchTerm }}.
+            </div>
             <div class="product"
                  v-for="(item, index) in items">
                  <div>
                      <div class="product-image">
-                        <img v-bind:src="item.link">
+                        <img :src="item.link">
                      </div>
                  </div>
                  <div>

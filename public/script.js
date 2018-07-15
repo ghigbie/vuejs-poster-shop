@@ -6,7 +6,8 @@ new Vue({
         total: 0.00, 
         items: [],
         cart: [],
-        searchTerm: 'smurfs',
+        searchTerm: 'star trek',
+        lastSearchterm: ''
     },
     methods: {
         addItem: function(index){
@@ -30,16 +31,16 @@ new Vue({
             }
         },
         onSubmit: function(event){
-            console.log('onSubmit');
             console.log(this.searchTerm);
             console.log(this.$http);
             this.$http
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
-                    console.log(res);
+                    this.items = res.data;
                     console.log(res.body);
                     console.log(res.data);
                 });
+                this.lastSearchterm = searchTerm;
         },
         increment: function(item){
             item.qty++;
@@ -57,6 +58,9 @@ new Vue({
                 }
             }
         }
+    },
+    beforeMount(){
+        this.onSubmit();
     },
     filters: {
         currency: function(price){
