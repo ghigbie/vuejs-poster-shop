@@ -28,8 +28,11 @@
     </div>
     <div class="main">
         <div class="products">
+            <div v-if="loading">
+                Loading...
+            </div>
             <div class="search-results"
-                 v-if="!loading">
+                 v-else>
                 Found {{ items.length }} result{{ items.length === 1 ? null : 's'}} for search term {{ lastSearchTerm }}.
             </div>
             <div class="product"
