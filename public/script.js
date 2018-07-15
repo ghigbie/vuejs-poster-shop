@@ -6,7 +6,7 @@ new Vue({
         total: 0.00, 
         items: [],
         cart: [],
-        searchTerm: 'star trek',
+        searchTerm: 'gummy bears',
         lastSearchterm: ''
     },
     methods: {
@@ -37,10 +37,10 @@ new Vue({
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
                     this.items = res.data;
+                    this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
                     console.log(res.data);
                 });
-                this.lastSearchterm = searchTerm;
         },
         increment: function(item){
             item.qty++;
