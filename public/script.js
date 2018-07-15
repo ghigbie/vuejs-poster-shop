@@ -7,7 +7,8 @@ new Vue({
         items: [],
         cart: [],
         searchTerm: 'gummy bears',
-        lastSearchTerm: ''
+        lastSearchTerm: '',
+        loading: false
     },
     methods: {
         addItem: function(index){
@@ -31,6 +32,8 @@ new Vue({
             }
         },
         onSubmit: function(event){
+            this.items = [];
+            this.loading = true;
             console.log(this.searchTerm);
             console.log(this.$http);
             this.$http
@@ -40,6 +43,7 @@ new Vue({
                     this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
                     console.log(res.data);
+                    this.loading = false;
                 });
         },
         increment: function(item){
