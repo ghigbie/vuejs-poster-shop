@@ -8,7 +8,8 @@ new Vue({
         cart: [],
         searchTerm: 'gummy bears',
         lastSearchTerm: '',
-        loading: false
+        loading: false,
+        price: PRICE
     },
     methods: {
         addItem: function(index){
