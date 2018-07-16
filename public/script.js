@@ -5,6 +5,7 @@ new Vue({
     data: {
         total: 0.00, 
         items: [],
+        results: [],
         cart: [],
         searchTerm: 'gummy bears',
         lastSearchTerm: '',
@@ -40,6 +41,7 @@ new Vue({
             this.$http
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
+                    this.results = res.data;
                     this.items = res.data.slice(0, 10);
                     this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
