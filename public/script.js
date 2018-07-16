@@ -34,10 +34,10 @@ new Vue({
                 })
             }
         },
-        appendItems: function(){
-            if(this.results.length > this.items.length){
-                const append = this.results.slice(this.items.length, this.items.length + LOAD_NUM);
-                this.items = this.items.concat(append);
+        appendItems: function(){ //this funciton adds 10 items from the results to the current array. It is called when the user scrolls to the bottom of the page
+            if(this.results.length > this.items.length){ //if the results is greater than the items
+                const append = this.results.slice(this.items.length, this.items.length + LOAD_NUM); //then take the next 10 results and store them in the variable append
+                this.items = this.items.concat(append); //concat the append to the items array so they will display on the page
             }
         },
         onSubmit: function(event){
