@@ -27,7 +27,7 @@ button:focus, input:focus {
 }
 
 .fade-enter-active {
-    transition: opacity .5s
+    transition: opacity .75s
 }
 .fade-enter, .fade-leave-active {
     opacity: 0
