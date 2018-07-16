@@ -41,15 +41,15 @@ new Vue({
             }
         },
         onSubmit: function(event){
-            this.items = [];
+            this.items = []; //reset items to empty array on a new search
             this.loading = true; //this var is used to show a loading message
-            this.$http
-                .get('/search/'.concat(this.searchTerm))
-                .then(function(res){
-                    this.results = res.data;
-                    this.items = res.data.slice(0, LOAD_NUM);
-                    this.lastSearchTerm = this.searchTerm;
-                    this.loading = false;
+            this.$http //ajax request
+                .get('/search/'.concat(this.searchTerm)) //the type of request and api specifications
+                .then(function(res){ //the promise that is returned
+                    this.results = res.data; //this populates the results array
+                    this.items = res.data.slice(0, LOAD_NUM); //this populates the items array with ten items
+                    this.lastSearchTerm = this.searchTerm; // this assigns the value of last search term
+                    this.loading = false; //change loading back to false
                 });
         },
         increment: function(item){
