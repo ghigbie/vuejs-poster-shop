@@ -34,6 +34,9 @@ new Vue({
                 })
             }
         },
+        appendItems: function(){
+            this.items = this.items
+        },
         onSubmit: function(event){
             this.items = [];
             this.loading = true;
@@ -69,6 +72,11 @@ new Vue({
     },
     mounted(){
         this.onSubmit();
+        const elem = document.getElementById('product-list-bottom');
+        const watcher = scrollMonitor.create(elem);
+        watcher.enterViewport(() =>{
+            this.appendItems();
+        });
     },
     filters: {
         currency: function(price){
@@ -76,6 +84,3 @@ new Vue({
         }
     }
 })
-
-const elem = document.getElementById('product-list-bottom');
-const watcher = scrollMonitor.create(elem);
