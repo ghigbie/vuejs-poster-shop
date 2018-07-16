@@ -35,7 +35,6 @@ new Vue({
             }
         },
         appendItems: function(){
-            console.log('append items');
             if(this.results.length > this.items.length){
                 const append = this.results.slice(this.items.length, this.items.length + LOAD_NUM);
                 this.items = this.items.concat(append);
@@ -44,8 +43,6 @@ new Vue({
         onSubmit: function(event){
             this.items = [];
             this.loading = true;
-            console.log(this.searchTerm);
-            console.log(this.$http);
             this.appendItems();
             this.$http
                 .get('/search/'.concat(this.searchTerm))
@@ -53,8 +50,6 @@ new Vue({
                     this.results = res.data;
                     this.items = res.data.slice(0, LOAD_NUM);
                     this.lastSearchTerm = this.searchTerm;
-                    console.log(res.body);
-                    console.log(res.data);
                     this.loading = false;
                 });
         },
