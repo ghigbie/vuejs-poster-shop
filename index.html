@@ -50,7 +50,9 @@
                             @click="addItem(index)">Add to Cart</button>
                  </div>
             </div>
-            <div id="product-list-bottom"></div>
+            <div id="product-list-bottom">
+                <div v-if="items.length === results.length">No more items to display</div>
+            </div>
         </div>
         <div class="cart">
             <h2>Shopping Cart</h2>
