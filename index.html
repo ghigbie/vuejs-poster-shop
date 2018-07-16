@@ -33,7 +33,7 @@
             </div>
             <div class="search-results"
                  v-else>
-                Found {{ items.length }} result{{ items.length === 1 ? null : 's'}} for search term {{ lastSearchTerm }}.
+                Found {{ results.length }} result{{ items.length === 1 ? null : 's'}} for search term {{ lastSearchTerm }}.
             </div>
             <div class="product"
                  v-for="(item, index) in items"
