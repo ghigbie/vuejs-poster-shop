@@ -35,13 +35,18 @@ new Vue({
             }
         },
         appendItems: function(){
-            this.items = this.items
+            console.log('append items');
+            if(this.results.length > this.items.length){
+                const append = this.results.slice(this.items.length, this.items.length + LOAD_NUM);
+                this.items = this.items.concat(append);
+            }
         },
         onSubmit: function(event){
             this.items = [];
             this.loading = true;
             console.log(this.searchTerm);
             console.log(this.$http);
+            this.appendItems();
             this.$http
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
@@ -72,10 +77,11 @@ new Vue({
     },
     mounted(){
         this.onSubmit();
+        const vueInstance = this;
         const elem = document.getElementById('product-list-bottom');
         const watcher = scrollMonitor.create(elem);
         watcher.enterViewport(() =>{
-            this.appendItems();
+            vueInstance.appendItems();
         });
     },
     filters: {
