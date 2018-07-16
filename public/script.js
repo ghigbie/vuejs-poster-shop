@@ -4,18 +4,18 @@ const LOAD_NUM = 10;
 new Vue({
     el: '#app',
     data: {
-        total: 0.00, 
-        items: [],
-        results: [],
-        cart: [],
-        searchTerm: 'gummy bears',
-        lastSearchTerm: '',
-        loading: false,
-        price: PRICE
+        total: 0.00, //this is the initial var that represents the price in the shopping cart
+        items: [], //this is the sliced res.data
+        results: [], //this is the complete res.data
+        cart: [], //this var is used to store items in the shopping cart
+        searchTerm: 'gummy bears', //this is the initial search Term
+        lastSearchTerm: '', //this is the used to display the search tern in the search message
+        loading: false, //this var is used to determine if a loading message should be displayed
+        price: PRICE //this is the hard coded price var
     },
     methods: {
         addItem: function(index){
-            this.total += PRICE;
+            this.total += PRICE; //the price is one single value
             const item = this.items[index];
             let found = false;
             for(let i = 0; i < this.cart.length; i++){
@@ -26,7 +26,7 @@ new Vue({
                 }
             }
             if(!found){
-                this.cart.push({
+                this.cart.push({ //this adds items to the cart array
                     id: item.id,
                     title: item.title,
                     qty: 1,
@@ -42,8 +42,7 @@ new Vue({
         },
         onSubmit: function(event){
             this.items = [];
-            this.loading = true;
-            this.appendItems();
+            this.loading = true; //this var is used to show a loading message
             this.$http
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
