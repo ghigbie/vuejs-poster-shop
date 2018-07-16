@@ -40,7 +40,7 @@ new Vue({
             this.$http
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
-                    this.items = res.data;
+                    this.items = res.data.slice(0, 10);
                     this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
                     console.log(res.data);
