@@ -52,11 +52,11 @@ new Vue({
                     this.loading = false; //change loading back to false
                 });
         },
-        increment: function(item){
+        increment: function(item){ //increments one item in the cart
             item.qty++;
             this.total += PRICE;
         },
-        decrement: function(item){
+        decrement: function(item){ //decremtns one item in the cart
             item.qty--;
             this.total -= PRICE;
             if(item.qty <= 0){
@@ -69,17 +69,17 @@ new Vue({
             }
         }
     },
-    mounted(){
-        this.onSubmit();
-        const vueInstance = this;
-        const elem = document.getElementById('product-list-bottom');
+    mounted(){ //these items are called on components mounting
+        this.onSubmit(); 
+        const vueInstance = this; //this redefines vueInstance as this
+        const elem = document.getElementById('product-list-bottom'); 
         const watcher = scrollMonitor.create(elem);
         watcher.enterViewport(() =>{
             vueInstance.appendItems();
         });
     },
     filters: {
-        currency: function(price){
+        currency: function(price){ //a currency filter used to display a dollar sign and a price at two decimal points
             return '$'.concat(price.toFixed(2));
         }
     }
