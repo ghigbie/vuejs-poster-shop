@@ -1,4 +1,5 @@
 const PRICE = 9.99;
+const LOAD_NUM = 10;
 
 new Vue({
     el: '#app',
@@ -42,7 +43,7 @@ new Vue({
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
                     this.results = res.data;
-                    this.items = res.data.slice(0, 10);
+                    this.items = res.data.slice(0, LO);
                     this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
                     console.log(res.data);
@@ -75,3 +76,6 @@ new Vue({
         }
     }
 })
+
+const elem = document.getElementById('product-list-bottom');
+const watcher = scrollMonitor(ele);
