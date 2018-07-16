@@ -43,7 +43,7 @@ new Vue({
                 .get('/search/'.concat(this.searchTerm))
                 .then(function(res){
                     this.results = res.data;
-                    this.items = res.data.slice(0, LO);
+                    this.items = res.data.slice(0, LOAD_NUM);
                     this.lastSearchTerm = this.searchTerm;
                     console.log(res.body);
                     console.log(res.data);
@@ -78,4 +78,4 @@ new Vue({
 })
 
 const elem = document.getElementById('product-list-bottom');
-const watcher = scrollMonitor(ele);
+const watcher = scrollMonitor.create(elem);
