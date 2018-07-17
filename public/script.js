@@ -80,7 +80,7 @@ new Vue({
     },
     computed: {
         noMoreItems: function(){
-            return this.items.length === this.results.length && this.results > 0;
+            return this.items.length === this.results.length && this.results > 0; //if this is true then the no more items message will be shown
         }
     },
     filters: {
