@@ -41,7 +41,7 @@ new Vue({
             }
         },
         onSubmit: function(event){
-            if(this.search.length){ //this checks to see if the search term has a length, to prevent blank search from occuring
+            if(this.searchTerm.length){ //this checks to see if the search term has a length, to prevent blank search from occuring
                 this.items = []; //reset items to empty array on a new search
                 this.loading = true; //this var is used to show a loading message
                 this.$http //ajax request
