@@ -21,8 +21,8 @@ button:focus, input:focus {
 .btn:active {
     opacity: 0.8;
 }
-
-[v-cloak] {
+/* use square brakets to select an attribute */
+[v-cloak] { 
     display: none !important;
 }
 
