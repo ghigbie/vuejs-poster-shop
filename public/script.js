@@ -78,6 +78,11 @@ new Vue({
             vueInstance.appendItems();
         });
     },
+    computed: {
+        noMoreItems: function(){
+            return this.items.length === this.results.length && this.results > 0;
+        }
+    },
     filters: {
         currency: function(price){ //a currency filter used to display a dollar sign and a price at two decimal points
             return '$'.concat(price.toFixed(2));
